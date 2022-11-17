@@ -19,7 +19,10 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [AuthController::class,'login']);
+// ->middleware('alreadyLoggedIn');
 Route::get('/registration', [AuthController::class,'registration']);
 Route::post('/registerUser', [AuthController::class,'registerUser'])->name('registerUser');
 Route::post('/loginUser', [AuthController::class,'loginUser'])->name('loginUser');
 Route::get('/dashboard', [AuthController::class,'dashboard']);
+// ->middleware('isLoggedIn');
+Route::get('/logout', [AuthController::class, 'logout']);

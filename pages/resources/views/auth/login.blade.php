@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="/css/main.css" rel="stylesheet">
+
 </head>
+
 
 <body>
     <div class="container">
+        {{-- <img src="/images/background3.webp" alt="Cover Image"/> --}}
         <div class="row">
-            <div class="col-md-4 col-md-offset-4" style="margin-top:20px;">
+            <div class="col-s1 " style="margin-top:100px;">
+                
+                {{-- <div class="card-panel teal lighten-4"></div> --}}
+                
+                {{-- <img src="/images/background3.webp" alt="Cover" class=" " max-width: 100%  height:auto>  --}}
+      
+                
+                {{-- <img class="responsive-img" src="background1.jpg"> --}}
                 <h3>LogIn </h3>
                 <hr>
                 <form action="{{route('loginUser')}}" method="post">
@@ -22,6 +33,7 @@
                     <div class="alert alert-danger">{{Session::get('fail')}}</div>
                     @endif
                     @csrf
+                    
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" class="form-control" placeholder="Enter Email"
@@ -48,6 +60,6 @@
 
 </body>
    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
 </html>
