@@ -71,6 +71,7 @@ class AuthController extends Controller
         $data = array();
         if(Session::has('loginId')){
             $data = User::where('id','=',Session::get('loginId'))->first();
+            //Log::info($message);
 
         }
         return view('auth.dashboard', compact('data'));
@@ -82,7 +83,12 @@ class AuthController extends Controller
             Session::pull('loginId');
             return redirect('login');
 
+        
+    
+
         }
     }
 }
 
+
+//php artisan make:event filename -->for making an event

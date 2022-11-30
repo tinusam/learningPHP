@@ -43,12 +43,8 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (InvalidOrderException $e) {
+        $this->reportable(function (Throwable $e) {
             //
-        })->stop();
-         
-        $this->reportable(function (InvalidOrderException $e) {
-            return false;
         });
     }
 }
