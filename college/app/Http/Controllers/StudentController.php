@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;  
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class StudentController extends Controller
 {
@@ -25,12 +27,16 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         
-        $request->validate([
+        //$request->validate([
+        $user = User::create([
             'studname'=>'required',
+            'email'=>'required',
             'course'=>'required',
             'fee'=>'required',
             'uploadfile'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        Mail::to('tiinusam117@gmail.com')->send(new UserCreatedMail());
 
         $input = $request->all();
 
@@ -70,12 +76,14 @@ class StudentController extends Controller
         dd($request->file('uploadfile'));
         $request->validate([
             'studname'=>'required',
+            'email'=>'required',
             'course'=>'required',
             'fee'=>'required',
             'uploadfile'=>'required',
 
         ]);
 
+    
         $student->update($request->all());
         return redirect()->route('students.index')
             ->with('success','Student updated successfully');

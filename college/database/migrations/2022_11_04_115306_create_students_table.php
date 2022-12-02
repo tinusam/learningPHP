@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('studname');
             $table->string('course');
             $table->string('fee');
+            $table->string('address');
             $table->string('uploadfile');
             $table->timestamps();
+
         });
     }
 
